@@ -5,7 +5,7 @@ from google.genai import types
 
 from .schemas import StudyPack
 
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "gemini-3.5-flash"
 
 PROMPT = """You are a study assistant. Read the notes below and produce a study pack.
 
@@ -44,8 +44,9 @@ def generate_study_pack(
         num_questions=num_questions,
         text=text,
     )
+    client = _client()  # keep a reference: a temporary client is closed before the request is sent
     try:
-        response = _client().models.generate_content(
+        response = client.models.generate_content(
             model=os.getenv("GEMINI_MODEL", DEFAULT_MODEL),
             contents=prompt,
             config=types.GenerateContentConfig(

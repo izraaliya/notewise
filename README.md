@@ -61,7 +61,7 @@ curl -X POST http://localhost:8000/api/study-pack \
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `GEMINI_API_KEY` | required | Google AI Studio key |
-| `GEMINI_MODEL` | `gemini-2.5-flash` | Any Gemini model that supports JSON output |
+| `GEMINI_MODEL` | `gemini-3.5-flash` | Any Gemini model that supports JSON output |
 
 ## Project structure
 
